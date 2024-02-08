@@ -46,5 +46,9 @@ public class Runner implements CommandLineRunner {
         System.out.println("Total charge: " + price);
 
 //        ctx.close();
+
+        System.out.println("----- DB INTERACTIONS -----");
+        System.out.println("----- SAVE -----");
+
     }
 }

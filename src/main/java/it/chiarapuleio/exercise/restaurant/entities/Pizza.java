@@ -1,13 +1,19 @@
 package it.chiarapuleio.exercise.restaurant.entities;
 
 import it.chiarapuleio.exercise.restaurant.abstractClass.SuperMenu;
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@Entity
+@DiscriminatorValue("pizzas")
 public class Pizza  extends SuperMenu {
     private String description;
     private List<Toppings> toppings;
