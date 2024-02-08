@@ -1,8 +1,7 @@
 package it.chiarapuleio.exercise.restaurant.entities;
 
 import it.chiarapuleio.exercise.restaurant.abstractClass.SuperMenu;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +14,10 @@ import java.util.List;
 @Entity
 @DiscriminatorValue("pizzas")
 public class Pizza  extends SuperMenu {
+    @Transient
     private String description;
+    @ManyToMany
+    @JoinTable(name = "topping-pizza", joinColumns = @JoinColumn(name = "pizza_id"), inverseJoinColumns = @JoinColumn(name = "topping_id"))
     private List<Toppings> toppings;
 
     public Pizza(String name, int kcal, double price) {

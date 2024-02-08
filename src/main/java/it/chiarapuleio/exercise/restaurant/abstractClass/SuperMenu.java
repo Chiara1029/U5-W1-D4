@@ -13,7 +13,7 @@ import lombok.*;
 public abstract class SuperMenu {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
+    private Long id;
     protected String name;
     protected int kcal;
     protected double price;

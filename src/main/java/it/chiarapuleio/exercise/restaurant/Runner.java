@@ -1,6 +1,7 @@
 package it.chiarapuleio.exercise.restaurant;
 
 import it.chiarapuleio.exercise.restaurant.abstractClass.SuperMenu;
+import it.chiarapuleio.exercise.restaurant.dao.SuperMenuService;
 import it.chiarapuleio.exercise.restaurant.entities.*;
 import it.chiarapuleio.exercise.restaurant.enums.OrderStatus;
 import it.chiarapuleio.exercise.restaurant.enums.TableStatus;
@@ -17,6 +18,8 @@ import java.util.List;
 public class Runner implements CommandLineRunner {
     @Autowired
     private AnnotationConfigApplicationContext ctx;
+    @Autowired
+    SuperMenuService smServ;
 
     @Override
     public void run(String... args) throws Exception {
@@ -48,7 +51,20 @@ public class Runner implements CommandLineRunner {
 //        ctx.close();
 
         System.out.println("----- DB INTERACTIONS -----");
-        System.out.println("----- SAVE -----");
+        System.out.println("----- SAVE TOPPINGS -----");
+        smServ.save((SuperMenu) ctx.getBean("getCheese"));
+        smServ.save((SuperMenu) ctx.getBean("getHam"));
+        smServ.save((SuperMenu) ctx.getBean("getOnions"));
+        smServ.save((SuperMenu) ctx.getBean("getPineapple"));
+        smServ.save((SuperMenu) ctx.getBean("getSalami"));
+        System.out.println("----- SAVE PIZZAS -----");
+        smServ.save((SuperMenu) ctx.getBean("getMargherita"));
+        smServ.save((SuperMenu) ctx.getBean("getHawaiianPizza"));
+        smServ.save((SuperMenu) ctx.getBean("getSalamiPizza"));
+        System.out.println("----- SAVE DRINKS -----");
+        smServ.save((SuperMenu) ctx.getBean("getLemonade"));
+        smServ.save((SuperMenu) ctx.getBean("getWater"));
+        smServ.save((SuperMenu) ctx.getBean("getWine"));
 
     }
 }
